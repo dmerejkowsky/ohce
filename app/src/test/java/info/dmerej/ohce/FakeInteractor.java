@@ -12,13 +12,18 @@ public class FakeInteractor implements Interactor {
     predefinedAnswers = new ArrayList<>();
   }
 
-  void add(String answer) {
-    predefinedAnswers.add(answer);
-  }
-
   @Override
   public void printMessage(String message) {
     recordedMessages.add(message);
+  }
+
+  @Override
+  public String readInput() {
+    return this.predefinedAnswers.remove(0);
+  }
+
+  void add(String answer) {
+    predefinedAnswers.add(answer);
   }
 
   public void reset() {
@@ -28,10 +33,5 @@ public class FakeInteractor implements Interactor {
 
   public List<String> getRecordedMessages() {
     return this.recordedMessages;
-  }
-
-  @Override
-  public String readInput() {
-    return this.predefinedAnswers.remove(0);
   }
 }
