@@ -2,11 +2,11 @@ package info.dmerej.ohce;
 
 public class Ohce {
   private String user;
-  private CurrentTimeIndicator currentTimeIndicator;
+  private TimeIndicator currentTimeIndicator;
   private Interactor interactor;
   private boolean shouldContinue;
 
-  public Ohce(String user, Interactor interactor, CurrentTimeIndicator currentTimeIndicator) {
+  public Ohce(String user, Interactor interactor, TimeIndicator currentTimeIndicator) {
     this.shouldContinue = true;
     this.user = user;
     this.interactor = interactor;
@@ -15,8 +15,8 @@ public class Ohce {
 
   public void greet() {
     String greeting;
-    CurrentTime currentTime = currentTimeIndicator.getCurrentTime();
-    switch (currentTime) {
+    Time time = currentTimeIndicator.getCurrentTime();
+    switch (time) {
       case MORNING:
         greeting = "Buenos dias";
         break;
@@ -27,7 +27,7 @@ public class Ohce {
         greeting = "Buenas noches";
         break;
       default:
-        throw new RuntimeException("Unhandled current time: " + currentTime.toString());
+        throw new RuntimeException("Unhandled current time: " + time.toString());
     }
     interactor.printMessage("¡" + greeting + " " + user + "!");
   }

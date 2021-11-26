@@ -7,21 +7,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HourMapperTest {
   @Test
   void test15HoursIsAfternoon() {
-    assertEquals(CurrentTime.AFTERNOON, HourMapper.map(15));
+    assertEquals(Time.AFTERNOON, HourMapper.map(15));
   }
 
   @Test
   void test21HoursIsNightTime() {
-    assertEquals(CurrentTime.NIGHT, HourMapper.map(21));
+    assertEquals(Time.NIGHT, HourMapper.map(21));
   }
 
   @Test
   void test5HoursIsNightTime() {
-    assertEquals(CurrentTime.NIGHT, HourMapper.map(21));
+    assertEquals(Time.NIGHT, HourMapper.map(21));
   }
 
   @Test
   void test6hoursIsMorning() {
-    assertEquals(CurrentTime.MORNING, HourMapper.map(6));
+    assertEquals(Time.MORNING, HourMapper.map(6));
   }
 }

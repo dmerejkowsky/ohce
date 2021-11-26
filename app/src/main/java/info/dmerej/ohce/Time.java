@@ -1,6 +1,6 @@
 package info.dmerej.ohce;
 
-public enum CurrentTime {
+public enum Time {
   MORNING,
   AFTERNOON,
   NIGHT,

@@ -12,28 +12,28 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class OhceTest {
   private Ohce ohce;
   private FakeInteractor interactor;
-  private FakeCurrentTimeIndicator currentTimeIndicator;
+  private FakeTimeIndicator currentTimeIndicator;
 
   @BeforeEach
   void setUp() {
     interactor = new FakeInteractor();
-    currentTimeIndicator = new FakeCurrentTimeIndicator();
+    currentTimeIndicator = new FakeTimeIndicator();
     ohce = new Ohce("Dimitri", interactor, currentTimeIndicator);
   }
 
   @Test
   void greetingWhenDuringNightTime() {
-    assertGreetingWith("¡Buenas noches Dimitri!", CurrentTime.NIGHT);
+    assertGreetingWith("¡Buenas noches Dimitri!", Time.NIGHT);
   }
 
   @Test
   void greetingInTheMorning() {
-    assertGreetingWith("¡Buenos dias Dimitri!", CurrentTime.MORNING);
+    assertGreetingWith("¡Buenos dias Dimitri!", Time.MORNING);
   }
 
   @Test
   void greetingInTheAfternoon() {
-    assertGreetingWith("¡Buenas tardes Dimitri!", CurrentTime.AFTERNOON);
+    assertGreetingWith("¡Buenas tardes Dimitri!", Time.AFTERNOON);
   }
 
   @Test
@@ -76,7 +76,7 @@ public class OhceTest {
     assertFalse(ohce.shouldContinue());
   }
 
-  private void assertGreetingWith(String expected, CurrentTime when) {
+  private void assertGreetingWith(String expected, Time when) {
     currentTimeIndicator.setCurrentTime(when);
 
     ohce.greet();

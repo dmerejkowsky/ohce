@@ -10,7 +10,7 @@ public class App {
 
     String user = args[0];
     Interactor interactor = new ConsoleInteractor();
-    CurrentTimeIndicator timeIndicator = new DateTimeIndicator();
+    TimeIndicator timeIndicator = new DateTimeIndicator();
     Ohce ohce = new Ohce(user, interactor, timeIndicator);
     ohce.greet();
     while (ohce.shouldContinue()) {
