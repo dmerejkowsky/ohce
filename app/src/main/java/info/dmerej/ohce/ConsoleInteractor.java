@@ -12,14 +12,6 @@ public class ConsoleInteractor implements Interactor {
 
   @Override
   public String readInput() {
-    /* Note: the following does not work when
-       using ./gradlew run (Console is null)
-       I *think* we can make it work when run from the IDE
-    ```
-    Console console = System.console();
-    return console.readLine();
-    ```
-     */
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     try {
       return reader.readLine();
