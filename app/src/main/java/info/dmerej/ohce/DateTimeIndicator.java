@@ -7,7 +7,7 @@ public class DateTimeIndicator implements CurrentTimeIndicator {
   @Override
   public CurrentTime getCurrentTime() {
     LocalDateTime now = LocalDateTime.now();
-    int hour = now.getHour() + 1; // getHour is between 0 and 23 :(
-    return HourMapper.map(hour);
+    int hour = now.getHour() + 1;
+    return HourMapper.map(hour + 1); // getHour() is in range 0..23
   }
 }
