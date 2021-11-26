@@ -7,39 +7,39 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FakeInteractorTest {
-    private FakeInteractor interactor;
+  private FakeInteractor interactor;
 
-    @BeforeEach
-    void setup() {
-        interactor = new FakeInteractor();
-    }
+  @BeforeEach
+  void setup() {
+    interactor = new FakeInteractor();
+  }
 
-    @AfterEach
-    void tearDown() {
-        interactor.reset();
-    }
+  @AfterEach
+  void tearDown() {
+    interactor.reset();
+  }
 
-    @Test
-    void canStorePredefinedAnswers() {
-        interactor.add("Yes");
-        interactor.add("No");
+  @Test
+  void canStorePredefinedAnswers() {
+    interactor.add("Yes");
+    interactor.add("No");
 
-        String answer1 = interactor.readInput();
-        assertEquals("Yes", answer1);
+    String answer1 = interactor.readInput();
+    assertEquals("Yes", answer1);
 
-        String answer2 = interactor.readInput();
-        assertEquals("No", answer2);
-    }
+    String answer2 = interactor.readInput();
+    assertEquals("No", answer2);
+  }
 
-    @Test
-    void storesPrintedMessages() {
-        interactor.printMessage("hello");
-        interactor.printMessage("good bye");
+  @Test
+  void storesPrintedMessages() {
+    interactor.printMessage("hello");
+    interactor.printMessage("good bye");
 
-        List<String> storedMessages = interactor.getRecordedMessages();
-        assertEquals(Arrays.asList("hello", "good bye"), storedMessages);
-    }
+    List<String> storedMessages = interactor.getRecordedMessages();
+    assertEquals(Arrays.asList("hello", "good bye"), storedMessages);
+  }
 }
