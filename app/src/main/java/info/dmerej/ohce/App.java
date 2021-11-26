@@ -12,6 +12,7 @@ public class App {
     Interactor interactor = new ConsoleInteractor();
     TimeIndicator timeIndicator = new DateTimeIndicator();
     Ohce ohce = new Ohce(user, interactor, timeIndicator);
+
     ohce.greet();
     while (ohce.shouldContinue()) {
       ohce.processInput();
