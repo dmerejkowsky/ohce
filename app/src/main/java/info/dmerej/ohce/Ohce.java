@@ -14,21 +14,13 @@ public class Ohce {
   }
 
   public void greet() {
-    String greeting;
+
     Time time = currentTimeIndicator.getCurrentTime();
-    switch (time) {
-      case MORNING:
-        greeting = "Buenos dias";
-        break;
-      case AFTERNOON:
-        greeting = "Buenas tardes";
-        break;
-      case NIGHT:
-        greeting = "Buenas noches";
-        break;
-      default:
-        throw new RuntimeException("Unhandled current time: " + time.toString());
-    }
+    String greeting = switch (time) {
+      case MORNING -> "Buenos dias";
+      case AFTERNOON -> "Buenas tardes";
+      case NIGHT -> "Buenas noches";
+    };
     interactor.printMessage("¡" + greeting + " " + user + "!");
   }
 
