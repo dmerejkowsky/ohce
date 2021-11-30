@@ -1,13 +1,12 @@
 package info.dmerej.ohce;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class OhceTest {
   private Ohce ohce;
@@ -51,11 +50,7 @@ public class OhceTest {
 
     ohce.processInput();
 
-    assertLastMessagesAre(new String[]{
-        "oto",
-        "¡Bonita palabra!"
-      }
-    );
+    assertLastMessagesAre(new String[] {"oto", "¡Bonita palabra!"});
   }
 
   @Test
@@ -95,4 +90,3 @@ public class OhceTest {
     assertEquals(Arrays.stream(expected).toList(), recordedMessages);
   }
 }
-

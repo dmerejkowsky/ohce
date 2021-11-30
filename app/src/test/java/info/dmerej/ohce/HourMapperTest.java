@@ -1,11 +1,10 @@
 package info.dmerej.ohce;
 
-import org.junit.jupiter.api.Test;
-
-import java.security.InvalidParameterException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.security.InvalidParameterException;
+import org.junit.jupiter.api.Test;
 
 public class HourMapperTest {
   @Test
@@ -30,15 +29,19 @@ public class HourMapperTest {
 
   @Test
   void rejectNegativeHours() {
-    assertThrows(InvalidParameterException.class, () -> {
-      HourMapper.map(-1);
-    });
+    assertThrows(
+        InvalidParameterException.class,
+        () -> {
+          HourMapper.map(-1);
+        });
   }
 
   @Test
   void reject25tHour() {
-    assertThrows(InvalidParameterException.class, () -> {
-      HourMapper.map(25);
-    });
+    assertThrows(
+        InvalidParameterException.class,
+        () -> {
+          HourMapper.map(25);
+        });
   }
 }
